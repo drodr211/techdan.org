@@ -1,34 +1,34 @@
 <html>
-  <style>
-    body {
-      background-color: #333;
-      color: white;
-      font-family: Arial, sans-serif;
-      transition: background-color 0.3s;
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-
-    button{
-      padding: 10px 15px;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 20px;
-    }
-    h2 {
-      padding: 10px 15px;
-      margin: 20px;
-    }
-  </style>
-  <body>
-
-
-    <title> TechDan.org </title>
+  <head>
+    <title> techdan.org </title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <h2>Hello World!</h2>
-   <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <style>
+      body {
+        background-color: #333;
+        color: white;
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+      }
 
+      button{
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 20px;
+      }
+      h2 {
+        padding: 10px 15px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h2>Hello World!</h2>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
       <script>
         function toggleDarkMode() {
           if (document.body.style.backgroundColor === "white") {
