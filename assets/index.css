@@ -1,3 +1,13 @@
+html, body {
+  height: 100%;
+  /*overflow: hidden;*/
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+
 body {
     background-color: #121417;
     color: #F5F7FA;
@@ -6,6 +16,7 @@ body {
     align-items: center;
     display: flex;
     flex-direction: column;
+    
     
 }
 a {  color:unset;  }
@@ -28,4 +39,12 @@ a.nav-link { text-decoration: none; }
 
 a.nav-link:hover { color:#14D9C4; }
 
-
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #1B1F24;
+  color: #A7B0BA;
+  text-align: center;
+}
