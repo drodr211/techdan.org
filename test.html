@@ -1,0 +1,144 @@
+<style>
+    body {
+        background: #333;
+        color: aliceblue;
+    }
+    .main-card {
+        width:95%;
+        height:70%;
+        background: #222;
+        margin: auto;
+        border-radius: 5%;
+    }
+    .contestant-container {
+        width:100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .contestant-card {
+        width:28%;
+        height:100%;
+        background: red;
+        margin-left: 4%;
+    }
+    .contestant-name {
+        width:28%;
+        height:100%;
+        background: red;
+        margin-left: 4%;
+    }
+    .heading {
+        margin-left: 4%;
+        padding-top: 5%;
+    }
+
+</style>
+
+<html>
+    <body>
+        <div class="main-card">
+            <h1 class="heading" id="output">SCORES</h1>
+            <div class="contestant-container">
+                <div class="contestant-card" id="c1">
+                    0
+                </div>
+                <div class="contestant-card" id="c2">
+                    0
+                </div>
+                <div class="contestant-card" id="c3">
+                    0
+                </div>
+            </div>
+            <div class="contestant-container">
+                <div class="contestant-name">
+                    Name
+                </div>
+            </div>      
+        </div>
+    </body>
+</html>
+
+  
+  <script>
+    /*
+    let buffer = "";
+
+    document.addEventListener("keydown", (e) => {
+      // Only accept valid characters
+      if (/[\=\-\d]/.test(e.key)) {
+        buffer += e.key;
+      }
+
+      // When Enter is pressed → validate
+      if (e.key === "Enter") {
+        const match = buffer.match(/^([=-])(\d)(\d+)$/);
+
+        if (match) {
+          const sign = match[1];
+          const digit = match[2];
+          const number = match[3];
+
+          const contestant = "c" + digit;
+          const element = document.getElementById(contestant);
+          const intvalue = parseInt(element.textContent, 10);
+  
+            if(sign == "=") {
+                element.textContent = "";
+                element.textContent = intvalue + parseInt(number,10);
+            }
+            if(sign == "-") {
+                element.textContent = "";
+                element.textContent = intvalue - parseInt(number,10);
+            }
+            document.getElementById("output").textContent =
+            "success";
+
+        } else {
+          document.getElementById("output").textContent =
+            "Invalid sequence";
+        }
+
+        buffer = ""; // reset
+      }
+    });
+    */
+  
+    let buffer = "";
+
+    document.addEventListener("keydown", (e) => {
+      // Only accept valid characters
+      if (/[\=\-\d]/.test(e.key)) {
+        buffer += e.key;
+      }
+
+      // When number is pressed → validate
+      if (/\d/.test(e.key)) {
+        const match = buffer.match(/^([=-])(\d)$/);
+
+        if (match) {
+          const sign = match[1];
+
+          const contestant = "c" + match[2];
+          const element = document.getElementById(contestant);
+          const intvalue = parseInt(element.textContent, 10);
+  
+            if(sign == "=") {
+                element.textContent = intvalue + 1;
+            }
+            if(sign == "-") {
+                element.textContent = intvalue - 1;
+            }
+            document.getElementById("output").textContent =
+            "success";
+
+        } else {
+          document.getElementById("output").textContent =
+            "Invalid sequence";
+        }
+
+        buffer = ""; // reset
+      }
+    });
+  </script>
+
+
