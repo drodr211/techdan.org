@@ -1,0 +1,56 @@
+@font-face {
+    font-family: fear;
+    src: url("/fonts/FearNight.ttf");
+}
+body {
+    background: #f69935;
+    color: aliceblue;
+    font-family: fear; 
+}
+.main-card {
+    display: flex;
+    flex-direction: column;
+    width:95%;
+    height:95%;
+    margin:auto;
+    background: #131319;
+    border-radius: 30px;
+}
+.contestant-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    margin-bottom: 2%;
+}
+.contestant-card {
+    display: flex;
+    flex-direction: column;
+    width:28%;
+    background: #f69935;
+    margin-left: 4%;
+    border-radius: 20px;
+}
+.contestant-score {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-size:18cqw;
+}
+.contestant-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:20%;
+    background: aliceblue;
+    color:#131319;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size:6cqw;
+}
+.heading {
+    margin-left: 4%;
+    font-weight:700;
+    font-size: 100px;
+}

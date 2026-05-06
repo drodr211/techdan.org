@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="style\scoreboard.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="main-card">
+            <h1 class="heading">SCORES</h1>
+            <div class="contestant-container">
+                <div class="contestant-card">
+                    <div class="contestant-score" id="c1">
+                        0
+                    </div>
+                    <div class="contestant-name">
+                        Name
+                    </div>
+                </div>
+                <div class="contestant-card">
+                    <div class="contestant-score" id="c2">
+                        0
+                    </div>
+                    <div class="contestant-name">
+                        Name
+                    </div>
+                </div>
+                <div class="contestant-card">
+                    <div class="contestant-score" id="c3">
+                        0
+                    </div>
+                    <div class="contestant-name">
+                        Name
+                    </div>   
+                </div>
+            </div>     
+        </div>
+    </body>
+</html>
+
+  
+<script>
+    let buffer = "";
+    document.addEventListener("keydown", (e) => {
+      // Only accept valid characters
+      if (/[\=\-\d]/.test(e.key)) {  buffer += e.key;  }
+      if (/\d/.test(e.key)) {
+        const match = buffer.match(/^([=-])(\d)$/);
+
+        if (match) {
+          const sign = match[1];
+          const contestant = "c" + match[2];
+          const element = document.getElementById(contestant);
+          const intvalue = parseInt(element.textContent, 10);
+  
+          if(sign == "=") {  element.textContent = intvalue + 1;  }
+          if(sign == "-") {  element.textContent = intvalue - 1;  }
+        }
+
+        buffer = ""; // reset
+      }
+    });
+</script>
+
+
