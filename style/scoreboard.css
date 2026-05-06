@@ -2,10 +2,21 @@
     font-family: fear;
     src: url("/fonts/FearNight.ttf");
 }
+html, body {
+  /*overflow: hidden;*/
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 body {
     background: #f69935;
     color: aliceblue;
     font-family: fear; 
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    padding:0;
+    margin:0;
 }
 .main-card {
     display: flex;
@@ -22,7 +33,7 @@ body {
     display: flex;
     flex-direction: row;
     width:100%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
 }
 .contestant-card {
     display: flex;
