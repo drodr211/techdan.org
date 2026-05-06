@@ -15,6 +15,7 @@ body {
     margin:auto;
     background: #131319;
     border-radius: 30px;
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
 }
 .contestant-container {
     flex-grow: 1;
@@ -50,7 +51,15 @@ body {
     font-size:6cqw;
 }
 .heading {
-    margin-left: 4%;
+    margin-left: 0.5%;
     font-weight:700;
     font-size: 100px;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.topbar {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
 }
