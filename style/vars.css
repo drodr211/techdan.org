@@ -1,0 +1,12 @@
+:root {
+    --background: #121417;
+    --secondary-background:#1B1F24;
+    --text-color: #F5F7FA;
+    --secondary-text-color:#A7B0BA;
+
+    --link-color:#14D9C4;
+
+    --large-font-size: 28px;
+    --medium-font-size:24px;
+    --font-size: 16px;
+}
