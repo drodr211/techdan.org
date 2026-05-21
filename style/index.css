@@ -1,3 +1,4 @@
+/* hide scrollbars on all browsers */
 html, body {
   height: 100%;
   /*overflow: hidden;*/
@@ -8,6 +9,8 @@ html::-webkit-scrollbar {
   display: none;
 }
 
+
+/* default tag classes */
 body {
     background-color: #121417;
     color: #F5F7FA;
@@ -21,24 +24,37 @@ body {
 }
 a {  color:unset;  }
 
-.nav-bar {
+
+
+/* nav bar css */
+#nav-bar {
     width:100%;
     font-size: 24px;
 }
-
-
 .nav-item {
     float:left;
     padding:10px 30px;  
     transition: transform 0.2s ease-in-out;
 }
-.nav-item.right { float:right; }
 .nav-item:hover { transform: translateY(-3px); }
+.nav-item.right { float:right; }
 
 a.nav-link { text-decoration: none; }
-
 a.nav-link:hover { color:#14D9C4; }
 
+
+/* main container css*/
+main {
+  width:100%;
+  justify-content: center;
+  align-content: center;
+}
+
+
+
+
+
+/* footer css */
 .footer {
   position: fixed;
   left: 0;
