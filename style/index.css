@@ -40,8 +40,10 @@ a.nav-link:hover { color: var(--link-color); }
 
 
 /* -------- main container css -------- */
-main { width:90%; flex: 1;}
-
+main { width:65%; flex: 1; margin: auto;}
+h1.page-header {
+  text-align: center;
+}
 
 /* -------- footer css  -------- */
 .footer {

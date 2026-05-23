@@ -3,10 +3,13 @@
     --secondary-background:#1B1F24;
     --text-color: #F5F7FA;
     --secondary-text-color:#A7B0BA;
+    --third-color:#5F6772;
 
     --link-color:#14D9C4;
 
     --large-font-size: 28px;
     --medium-font-size:24px;
     --font-size: 16px;
+
+    --border-radius:16px;
 }
