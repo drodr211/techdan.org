@@ -48,6 +48,7 @@ async function loadProjects() {
         </h2>
         <small> Last modified: ${updatedDate} </small>
         <p class="project-desc">${repo.description}</p>
+        <p class="project-desc"> Language: ${repo.language} </p>
       `;
 
       container.appendChild(card);
