@@ -2,7 +2,7 @@
     {
         "name": "MinSweeper",
         "href": "minsweeper",
-        "date": "06/10/26",
+        "date": "6/13/26",
         "desc": "A simplified Minesweeper clone mostly just to see if I could make it ",
         "lang": "HTML, .js"
     }
