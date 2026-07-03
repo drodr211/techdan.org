@@ -34,7 +34,7 @@ a:hover {color: var(--link-color);}
 
 
 /* -------- main container css -------- */
-main { width:65%; flex: 1; margin: auto;}
+main { width:65%; flex: 1; margin: auto; margin-top: 3rem;}
 h1.page-header { text-align: center; }
 
 
@@ -84,4 +84,11 @@ h1.page-header { text-align: center; }
 
   
 
+}
+
+
+
+.link-highlight {
+  text-decoration: underline;
+  color: var(--link-color)
 }

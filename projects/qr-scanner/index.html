@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script src="/js/structure.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  
+  <body>
+    <div id="nav-bar"></div>
+    <main>
+        <h1 class="page-header">QR Scanner</h1>
+        <div class="main-scanner">
+            <input type="file" id="file-selector" >
+            <div id="file-qr-result"></div>
+        </div>
+        
+        
+        <script type="module">
+            import QrScanner from '/js/qr-scanner.min.js'
+
+            const fileSelector = document.getElementById('file-selector');
+            const fileQrResult = document.getElementById('file-qr-result');
+
+            function setResult(label, result) {
+                label.textContent = result.data;
+                clearTimeout(label.highlightTimeout);
+                label.highlightTimeout = setTimeout(() => label.style.color = 'inherit', 100);
+            }
+
+            fileSelector.addEventListener('change', event => {
+                const file = fileSelector.files[0];
+                if (!file) return;
+                QrScanner.scanImage(file, { returnDetailedScanResult: true })
+                    .then(result => setResult(fileQrResult, result))
+                    .catch(e => setResult(fileQrResult, { data: e || 'No QR code found.' }));
+            });
+
+
+        </script>
+
+
+    </main>
+    <div id="footer"></div>
+  </body>
+</html>
