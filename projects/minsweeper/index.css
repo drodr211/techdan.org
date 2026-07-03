@@ -8,34 +8,23 @@
 .row {
     display:flex;
     flex-direction: row;
+    margin:auto;
 }
 .cell {
     width:40px;
     height:40px;
-    background: rgb(167, 167, 167);
+    background: var(--secondary-text-color);
+    
     border-width: 1px;
-    border-color: rgb(76, 76, 76);
+    border-color: var(--secondary-background);
     border-style: solid;
+    
     display: flex;
     align-items: center;
     justify-content: center;
     font-size:130%;
 }
 
-.cell-hidden {
-
-}
 .cell-visible {
-    
-}
-
-
-
-body {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    background:rgb(54, 54, 54);
-    font-family: "Press Start 2P", system-ui;
+   background: var(--surface); 
 }

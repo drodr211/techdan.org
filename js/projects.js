@@ -30,7 +30,7 @@ fetch("/projects/proj.json")
       card.className = "project";
       card.innerHTML = `
         <h2 class="project-name">
-          <a href="/projects/${project.href}" target="_blank">
+          <a href="/projects/${project.href}">
             ${project.name}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 
@@ -67,7 +67,7 @@ async function loadProjects() {
   
   for (const repo of filtered) {
     try {
-      const updatedDate = new Date(repo.pushed_at).toLocaleDateString();
+      const updatedDate = new Date(repo.pushed_at).toLocaleDateString("en-US");
       const readmeResponse = await fetch(`https://raw.githubusercontent.com/${USERNAME}/${repo.name}/main/README.md`); // Fetch README
       const readmeText = await readmeResponse.text();
 
