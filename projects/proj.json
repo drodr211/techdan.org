@@ -14,10 +14,10 @@
         "lang": "HTML, .js" 
     },
     {
-        "name": "",
-        "href": "",
-        "date": "",
-        "desc": "",
-        "lang": "" 
+        "name": "Stats",
+        "href": "stats",
+        "date": "10/6/26",
+        "desc": "An NFL stats tracker using a database hosted on Supabase",
+        "lang": "HTML, .js, PostGreSQL" 
     }
 ]
