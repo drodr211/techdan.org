@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <script src="/js/structure.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+
+        const db = window.supabase.createClient(
+            "https://zohowiegngyfactfdwzi.supabase.co",
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvaG93aWVnbmd5ZmFjdGZkd3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzE3MDAsImV4cCI6MjEwNjkwNzcwMH0.9lG1Q5SREYiWQQOIWi7goJOuj90DoGYwLcp2AfgHNoo"
+        );
+
+        async function getGames() {
+            const { data, error } = await db
+                .from("nfl_matches")
+                .select("*")
+                .eq("week", 1);
+                //.order("week", { ascending: true });
+
+
+            if (error) { console.error(error); return; }
+            console.log(data);
+            
+             // html loading
+            const container = document.getElementById("games-container");
+
+            
+            data.forEach(game => {
+                const div = document.createElement("div");
+                div.classList.add('match-main');
+
+                inhtml = `<h3>${game.away_team} @ ${game.home_team}</h3>`;
+
+                if(game.completed) {
+                    inhtml += `<p>${game.away_score} - ${game.home_score}</p>`;
+                }
+                
+                div.innerHTML = `${inhtml}`;
+
+                container.appendChild(div);
+            }); 
+        };
+        getGames();
+        
+    </script> 
+
+
+  </head>
+  
+  <body>
+    <div id="nav-bar"></div>
+    <main>
+        <div id="games-container">
+
+        </div>
+    </main>
+    <div id="footer"></div>
+  </body>
+</html>

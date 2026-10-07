@@ -92,3 +92,13 @@ h1.page-header { text-align: center; }
   text-decoration: underline;
   color: var(--link-color)
 }
+
+
+
+/*----- STATS PAGE ------*/
+.match-main {
+  text-align: center;
+  border: 1px solid var(--secondary-text-color);
+  border-radius:20px;
+  margin-bottom: 10px;
+}
