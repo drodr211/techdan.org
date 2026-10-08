@@ -80,10 +80,22 @@ h1.page-header { text-align: center; }
 /* ----- STATS PAGE ------ */
 .match-main {
   text-align: center;
-  border: 1px solid var(--secondary-text-color);
-  border-radius:20px;
+  /*border: 1px solid var(--secondary-text-color);
+  border-radius:20px;*/
   margin-bottom: 10px;
   font-size: var(--medium-font-size);
+}
+
+.match-logo {
+  height: 1.5em;
+  width: 1.5em;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.match-team {
+  display: flex;
+  align-items: center;
 }
 
 

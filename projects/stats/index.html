@@ -10,31 +10,63 @@
         );
 
         async function getGames() {
-            const { data, error } = await db
+            const { data: games, error } = await db
                 .from("nfl_matches")
                 .select("*")
                 .eq("week", 1);
                 //.order("week", { ascending: true });
-
-
             if (error) { console.error(error); return; }
-            console.log(data);
+            console.log(games);
+
+            const { data: teams, error2 } = await db
+                .from("nfl_teams")
+                .select("*");
+            if (error2) { console.error(error2); return; }
+
+            
             
              // html loading
             const container = document.getElementById("games-container");
 
-            
-            data.forEach(game => {
+            games.forEach(game => {
                 const div = document.createElement("div");
                 div.classList.add('match-main');
 
-                inhtml = `<h3>${game.away_team} @ ${game.home_team}</h3>`;
+                const date = new Date(game.gameday);
+                const formatted = `${date.getMonth() + 1}/${date.getDate()}`;
 
-                if(game.completed) {
-                    inhtml += `<p>${game.away_score} - ${game.home_score}</p>`;
-                }
-                
-                div.innerHTML = `${inhtml}`;
+                const hteam = teams.find(t => t.abbr === game.home_team);
+                const ateam = teams.find(t => t.abbr === game.away_team);
+
+                in2html = `
+                    <hr>
+                    <table style="font-size: inherit; width:100%">
+                        <tr>
+                            <th style="width:50%"></th>
+                            <th style="width:30%; text-align:center ;"></th>
+                            <th style="width:20%"></th>
+
+                        </tr>
+                        <tr>
+                            <td class="match-team"><img class="match-logo" src="${ateam.logo_sqr}"></img>${ateam.nick}</td>
+                            <td style="text-align:center">${game.away_score}</td>
+                            <td> 
+                `;
+
+                if(game.completed) in2html += `Final` 
+                                 
+                in2html += `
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="match-team"><img class="match-logo" src="${hteam.logo_sqr}"></img>${hteam.nick}</td>
+                            <td style="text-align:center">${game.home_score}</td>
+                            <td> ${formatted} </td>
+                        </tr>
+                    </table>
+                `;
+
+                div.innerHTML = `${in2html}`;
 
                 container.appendChild(div);
             }); 
