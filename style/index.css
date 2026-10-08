@@ -5,7 +5,7 @@ html, body {
   /*height: 100%;*/
   scrollbar-width: none;
   -ms-overflow-style: none;
-  font-size:16px;
+  font-size:1rem;
 }
 html::-webkit-scrollbar { display: none; }
 
@@ -70,18 +70,20 @@ h1.page-header { text-align: center; }
 .footer-bottom { width:65% }
 
 
-
-
-
-
-
 /* -------- mobile css  -------- */
 @media screen and (max-device-width:700px) {
+  #nav-bar {
+    font-size: var(--mobile-large-font-size);
+  }
+  
   .footer-main {
     width:90%;
   }
   .footer-bottom { width:90% }
 
+  .footer-header {
+    font-size: var(--mobile-medium-font-size);
+  }
   
 
 }
