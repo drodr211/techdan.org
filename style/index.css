@@ -2,7 +2,7 @@
 
 /* -------- hide scrollbars on all browsers  -------- */
 html, body {
-  height: 100%;
+  /*height: 100%;*/
   scrollbar-width: none;
   -ms-overflow-style: none;
   font-size:16px;
@@ -34,7 +34,7 @@ a:hover {color: var(--link-color);}
 
 
 /* -------- main container css -------- */
-main { width:65%; flex: 1; margin: auto; margin-top: 3rem;}
+main { width:65%; flex: 1; margin: auto; margin-top: 3rem; margin-bottom: 3rem;}
 h1.page-header { text-align: center; }
 
 
