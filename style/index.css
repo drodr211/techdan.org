@@ -72,6 +72,10 @@ h1.page-header { text-align: center; }
 
 /* -------- mobile css  -------- */
 @media screen and (max-device-width:700px) {
+  html, body {
+    font-size: 1.5rem;
+  }
+
   #nav-bar {
     font-size: var(--mobile-large-font-size);
   }
