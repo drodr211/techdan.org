@@ -8,7 +8,7 @@
     --link-color:#14D9C4;
 
     --large-font-size: 1.75rem;
-    --medium-font-size:1.5rem;
+    --medium-font-size:1.25rem;
 
     --border-radius:16px;
 
@@ -18,6 +18,6 @@
 
     --mobile-large-font-size: 3rem;
     --mobile-medium-font-size: 2.25rem;
-
+    --mobile-small-font-size: 1.75rem;
 
 }

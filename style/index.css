@@ -84,6 +84,10 @@ h1.page-header { text-align: center; }
   .footer-header {
     font-size: var(--mobile-medium-font-size);
   }
+
+  .match-main {
+    font-size: var(--mobile-medium-font-size);
+  }
   
 
 }
@@ -103,4 +107,5 @@ h1.page-header { text-align: center; }
   border: 1px solid var(--secondary-text-color);
   border-radius:20px;
   margin-bottom: 10px;
+  font-size: var(--medium-font-size);
 }
