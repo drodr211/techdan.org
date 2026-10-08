@@ -3,29 +3,13 @@
     <script src="/js/structure.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-
         const db = window.supabase.createClient(
-            "https://zohowiegngyfactfdwzi.supabase.co",
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvaG93aWVnbmd5ZmFjdGZkd3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzE3MDAsImV4cCI6MjEwNjkwNzcwMH0.9lG1Q5SREYiWQQOIWi7goJOuj90DoGYwLcp2AfgHNoo"
+            "https://zohowiegngyfactfdwzi.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvaG93aWVnbmd5ZmFjdGZkd3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzE3MDAsImV4cCI6MjEwNjkwNzcwMH0.9lG1Q5SREYiWQQOIWi7goJOuj90DoGYwLcp2AfgHNoo"
         );
 
         async function getGames() {
-            const { data: games, error } = await db
-                .from("nfl_matches")
-                .select("*")
-                .eq("week", 1);
-                //.order("week", { ascending: true });
-            if (error) { console.error(error); return; }
-            console.log(games);
-
-            const { data: teams, error2 } = await db
-                .from("nfl_teams")
-                .select("*");
-            if (error2) { console.error(error2); return; }
-
-            
-            
-             // html loading
+            const {data: games, error} = await db .from("nfl_matches") .select("*") .eq("week", 1);
+            const {data: teams, error2} = await db .from("nfl_teams") .select("*");
             const container = document.getElementById("games-container");
 
             games.forEach(game => {
@@ -67,10 +51,10 @@
                 `;
 
                 div.innerHTML = `${in2html}`;
-
                 container.appendChild(div);
             }); 
         };
+
         getGames();
         
     </script> 
@@ -82,7 +66,6 @@
     <div id="nav-bar"></div>
     <main>
         <div id="games-container">
-
         </div>
     </main>
     <div id="footer"></div>
