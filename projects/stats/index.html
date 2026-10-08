@@ -7,8 +7,8 @@
             "https://zohowiegngyfactfdwzi.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvaG93aWVnbmd5ZmFjdGZkd3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzE3MDAsImV4cCI6MjEwNjkwNzcwMH0.9lG1Q5SREYiWQQOIWi7goJOuj90DoGYwLcp2AfgHNoo"
         );
 
-        async function getGames() {
-            const {data: games, error} = await db .from("nfl_matches") .select("*") .eq("week", 1);
+        async function getGames(week) {
+            const {data: games, error} = await db .from("nfl_matches") .select("*") .eq("week", week);
             const {data: teams, error2} = await db .from("nfl_teams") .select("*");
             const container = document.getElementById("games-container");
 
@@ -17,7 +17,7 @@
                 div.classList.add('match-main');
 
                 const date = new Date(game.gameday);
-                const formatted = `${date.getMonth() + 1}/${date.getDate()}`;
+                const formatted = `${date.getMonth() + 1}/${date.getDate()+1}`;
 
                 const hteam = teams.find(t => t.abbr === game.home_team);
                 const ateam = teams.find(t => t.abbr === game.away_team);
@@ -33,18 +33,18 @@
                         </tr>
                         <tr>
                             <td class="match-team"><img class="match-logo" src="${ateam.logo_sqr}"></img>${ateam.nick}</td>
-                            <td style="text-align:center">${game.away_score}</td>
+                            <td style="text-align:center">${game.away_score ?? ""}</td>
                             <td> 
                 `;
 
-                if(game.completed) in2html += `Final` 
-                                 
+                if(game.completed) in2html += `Final`; else in2html += `Scheduled`
+                       
                 in2html += `
                             </td>
                         </tr>
                         <tr>
                             <td class="match-team"><img class="match-logo" src="${hteam.logo_sqr}"></img>${hteam.nick}</td>
-                            <td style="text-align:center">${game.home_score}</td>
+                            <td style="text-align:center">${game.home_score ?? ""}</td>
                             <td> ${formatted} </td>
                         </tr>
                     </table>
@@ -55,7 +55,7 @@
             }); 
         };
 
-        getGames();
+        getGames(5);
         
     </script> 
 
