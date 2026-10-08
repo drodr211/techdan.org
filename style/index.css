@@ -70,6 +70,23 @@ h1.page-header { text-align: center; }
 .footer-bottom { width:65% }
 
 
+.link-highlight {
+  text-decoration: underline;
+  color: var(--link-color)
+}
+
+
+
+/* ----- STATS PAGE ------ */
+.match-main {
+  text-align: center;
+  border: 1px solid var(--secondary-text-color);
+  border-radius:20px;
+  margin-bottom: 10px;
+  font-size: var(--medium-font-size);
+}
+
+
 /* -------- mobile css  -------- */
 @media screen and (max-device-width:700px) {
   #nav-bar {
@@ -90,22 +107,4 @@ h1.page-header { text-align: center; }
   }
   
 
-}
-
-
-
-.link-highlight {
-  text-decoration: underline;
-  color: var(--link-color)
-}
-
-
-
-/* ----- STATS PAGE ------ */
-.match-main {
-  text-align: center;
-  border: 1px solid var(--secondary-text-color);
-  border-radius:20px;
-  margin-bottom: 10px;
-  font-size: var(--medium-font-size);
 }
