@@ -55,9 +55,27 @@
             }); 
         };
 
-        getGames(5);
+        async function clearGames() {
+            document.getElementById("games-container").replaceChildren();
+        };
+
         
     </script> 
+    <script>
+
+        const curr_week = 5;
+
+        function loadWeek(week) {
+            window.location.href = `index.html?id=${week}`;
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const week = Number(params.get("id")) || curr_week;
+
+            clearGames();
+            getGames(week);
+        });
+    </script>
 
 
   </head>
@@ -65,6 +83,16 @@
   <body>
     <div id="nav-bar"></div>
     <main>
+        <div class="week-buttons">
+            <button onclick="loadWeek(1)">Week 1</button>
+            <button onclick="loadWeek(2)">Week 2</button>
+            <button onclick="loadWeek(3)">Week 3</button>
+            <button onclick="loadWeek(4)">Week 4</button>
+            <button onclick="loadWeek(5)">Week 5</button>
+            <button onclick="loadWeek(6)">Week 6</button>
+            <button onclick="loadWeek(7)">Week 7</button>
+            <button onclick="loadWeek(8)">Week 8</button>
+        </div>
         <div id="games-container">
         </div>
     </main>
