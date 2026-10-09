@@ -84,7 +84,12 @@ h1.page-header { text-align: center; }
   border-radius:20px;*/
   margin-bottom: 10px;
   font-size: var(--medium-font-size);
+  transition: transform 0.2s ease-in-out;
 }
+
+.match-main:hover { transform: scale(1.05); }
+
+
 
 .match-logo {
   height: 1.5em;

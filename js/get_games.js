@@ -1,0 +1,56 @@
+const db = window.supabase.createClient(
+    "https://zohowiegngyfactfdwzi.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpvaG93aWVnbmd5ZmFjdGZkd3ppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMzE3MDAsImV4cCI6MjEwNjkwNzcwMH0.9lG1Q5SREYiWQQOIWi7goJOuj90DoGYwLcp2AfgHNoo"
+);
+
+async function getGames(week) {
+    clearGames();
+    const {data: games, error} = await db .from("nfl_matches") .select("*") .eq("week", week);
+    const {data: teams, error2} = await db .from("nfl_teams") .select("*");
+    const container = document.getElementById("games-container");
+
+    games.forEach(game => {
+        const div = document.createElement("div");
+        div.classList.add('match-main');
+        div.onclick = function() { window.location.href = `match.html?wk=${game.week}&htm=${game.home_team}&atm=${game.away_team}`;};
+
+        const date = new Date(game.gameday);
+        const formatted = `${date.getMonth() + 1}/${date.getDate()+1}`;
+
+        const hteam = teams.find(t => t.abbr === game.home_team);
+        const ateam = teams.find(t => t.abbr === game.away_team);
+
+        in2html = `
+            <hr>
+            <table style="font-size: inherit; width:100%">
+                <tr>
+                    <th style="width:40%"></th>
+                    <th style="width:30%; text-align:center ;"></th>
+                    <th style="width:30%"></th>
+
+                </tr>
+                <tr>
+                    <td class="match-team"><img class="match-logo" src="${ateam.logo_sqr}"></img>${ateam.nick}</td>
+                    <td style="text-align:center">${game.away_score ?? ""}</td>
+                    <td> 
+        `;
+
+        if(game.completed) in2html += `Final`; else in2html += `Scheduled`
+                
+        in2html += `
+                    </td>
+                </tr>
+                <tr>
+                    <td class="match-team"><img class="match-logo" src="${hteam.logo_sqr}"></img>${hteam.nick}</td>
+                    <td style="text-align:center">${game.home_score ?? ""}</td>
+                    <td> ${formatted} </td>
+                </tr>
+            </table>
+        `;
+
+        div.innerHTML = `${in2html}`;
+
+        container.appendChild(div);
+    }); 
+};
+
+async function clearGames() {document.getElementById("games-container").replaceChildren();};

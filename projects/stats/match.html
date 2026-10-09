@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="/js/structure.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/get_players.js" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const wk = params.get("wk");
+            const htm = params.get("htm");
+            const atm = params.get("atm");
+
+            getAwayTeam(wk, atm);
+            getHomeTeam(wk, htm);
+        });
+
+
+    </script>
+  </head>
+  
+  
+  <body>
+    <div id="nav-bar"></div>
+    <main>
+        <div id="player-stats">
+
+        </div>
+        <table>
+            <tr>
+                <td id="away-team">
+
+                </td>
+                <td id="home-team">
+
+                </td>
+            </tr>
+        </table>
+    </main>
+    <div id="footer"></div>
+  </body>
+</html>
